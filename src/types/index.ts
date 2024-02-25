@@ -1,4 +1,5 @@
 import { Result } from '@zxing/library';
+export type OnResultFunction = (result: Result) => void;
 
 export type OnErrorFunction = (error: Error) => void;
 
