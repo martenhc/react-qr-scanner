@@ -1,6 +1,6 @@
 {
     "name": "@martenhc/react-qr-scanner",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "description": "forked from @yudiel/react-qr-scanner for a more customized usage",
     "license": "MIT",
     "main": "dist/cjs/index.js",

@@ -1,4 +1,4 @@
-import React, { PropsWithChildren } from 'react';
+import React from 'react';
 
 import { DecodeHintType, Result } from '@zxing/library';
 
@@ -9,6 +9,7 @@ import { defaultConstraints } from '../misc/defaultConstraints';
 export interface IQrScannerProps {
     onError?: OnErrorFunction;
     onDecode?: (result: string) => void;
+    className?: string;
     constraints?: MediaTrackConstraints;
     scanDelay?: number;
     deviceId?: string;
@@ -16,7 +17,7 @@ export interface IQrScannerProps {
     audio?: boolean;
 }
 
-export const QrScanner = ({ onError, onDecode, constraints = defaultConstraints, scanDelay = 100, deviceId, hints, audio = true, children }: PropsWithChildren<IQrScannerProps>) => {
+export const QrScanner = ({ onError, onDecode, className, constraints = defaultConstraints, scanDelay = 100, deviceId, hints, audio = true }: IQrScannerProps) => {
     async function handleOnResult(result: Result) {
         onDecode?.(result.getText());
     }
@@ -36,8 +37,7 @@ export const QrScanner = ({ onError, onDecode, constraints = defaultConstraints,
     });
 
     return (
-        <div>
-            {children}
+        <div className={className ?? ''}>
             <video ref={ref} muted playsInline />
         </div>
     );
